@@ -3,68 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Villa la vie là Ltd</title>
+    <title>La Villa la vie là Ltd - Mauritius</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background-color: #1a252f;
-            color: white;
-            padding: 40px 20px;
-        }
-        .container {
-            width: 95%;
-            max-width: 1100px;
-            margin: 20px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        h1 { margin: 0; font-size: 2.5em; }
-        .intro-text { font-size: 1.2em; color: #555; margin-bottom: 30px; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; line-height: 1.6; }
+        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('villa1.jpg'); background-size: cover; background-position: center; color: white; padding: 60px 20px; text-align: center; }
+        .container { width: 90%; max-width: 1100px; margin: -30px auto 30px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         
-        /* The Gallery Grid */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
+        h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #25D366; display: inline-block; padding-bottom: 5px; }
+
+        .booking-section { background: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
+        .calendar-input { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 250px; text-align: center; }
         
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 12px;
-            background: #eee;
-            height: 250px;
-        }
+        .btn-whatsapp { background-color: #25D366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
 
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 30px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; cursor: pointer; }
+        .gallery img:hover { opacity: 0.9; transform: scale(1.02); }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            margin-top: 50px;
-            padding: 30px;
-            background: #1a252f;
-            color: white;
-        }
-
-        /* Mobile Adjustments */
+        footer { background: #1a252f; color: white; padding: 40px 20px; margin-top: 50px; }
+        
         @media (max-width: 600px) {
             h1 { font-size: 1.8em; }
-            .container
+            .calendar-input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>La Villa la vie là Ltd</h1>
+    <p>Luxury Boutique Living in Mauritius</p>
+</header>
+
+<div class="container">
+    <h2>About Our Paradise</h2>
+    <p>Experience the ultimate tropical getaway. Located in a serene environment, our villa offers modern luxury, a private atmosphere, and breathtaking views for your perfect holiday.</p>
+
+    <h2>Check Availability</h2>
+    <div class="booking-section">
+        <input type="text" id="checkin" class="calendar-input" placeholder="Select Dates">
+        <a href="#" onclick="sendWhatsApp()" class="btn-whatsapp">Check Dates on WhatsApp</a>
+    </div>
+
+    <h2>Photo Gallery</h2>
+    <div class="gallery" id="gallery">
+        </div>
+</div>
+
+<footer>
+    <p>📍 Mauritius | La Villa la vie là Ltd</p>
+    <p>&copy; 2026 All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // 1. Initialize the Calendar
+    flatpickr("#checkin", {
+        mode: "range",
+        minDate: "today",
+        dateFormat: "Y-m-d",
+    });
+
+    // 2. WhatsApp Function
+    function sendWhatsApp() {
+        const dates = document.getElementById("checkin").value;
+        const phone = "23051234567"; // REPLACE THIS with your real WhatsApp number
+        let message = "Hello! I am interested in booking La Villa la vie là.";
+        if (dates) { message += " My preferred dates are: "
