@@ -1,27 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Villa la vie là Ltd</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 { margin-bottom: 10px; }
+        p { line-height: 1.6; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>La Villa la vie là Ltd</h1>
+    <p>Luxury Accommodation in Mauritius</p>
+</header>
+
+<div class="container">
+    <h2>About the Villa</h2>
+    <p>Experience the ultimate tropical getaway in our beautiful villa. Located in a serene environment, we offer comfort, privacy, and luxury for your perfect holiday.</p>
+
+    <h2>Gallery</h2>
+    <div class="gallery" id="gallery">
+        </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 La Villa la vie là Ltd. All Rights Reserved.</p>
+</footer>
+
 <script>
-    const images = [
-        "villa1.jpeg.jpg",
-        "villa2.jpeg.jpg",
-        "villa3.jpeg.jpg",
-        "villa4.jpeg.jpg",
-        "villa5.jpeg.jpg",
-        "villa6.jpeg.jpg",
-        "villa7.jpeg.jpg",
-        "villa8.jpeg.jpeg", 
-        "villa9.jpeg.jpg",
-        "villa10.jpeg.jpg"
-    ];
-
-    const gallery = document.getElementById("gallery");
-
-    images.forEach(imgFile => {
-        const img = document.createElement("img");
-        img.src = imgFile;
-        img.alt = "Villa Photo";
-        img.style.width = "100%";
-        img.style.height = "250px";
-        img.style.objectFit = "cover";
-        img.style.borderRadius = "8px";
-        gallery.appendChild(img);
-    });
-</script>
