@@ -8,49 +8,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Georgia', serif; margin: 0; padding: 0; background-color: #fdfdfd; text-align: center; color: #2c3e50; scroll-behavior: smooth; }
+        
+        /* Language Switcher */
+        .lang-switch { background: #1a252f; padding: 10px; display: flex; justify-content: flex-end; gap: 15px; padding-right: 5%; }
+        .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; font-size: 1.5em; border: none; background: none; }
+        .lang-btn.active { opacity: 1; transform: scale(1.2); }
+
         nav { background: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: center; }
         nav a { text-decoration: none; color: #1a252f; margin: 0 10px; font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; }
-        header { background-color: #1a252f; color: white; padding: 50px 15px; }
-        h1 { margin: 0; font-size: 1.8em; letter-spacing: 1px; line-height: 1.2; }
-        .tagline { font-style: italic; color: #7f8c8d; font-size: 1em; margin-top: 10px; }
-        .container { width: 90%; max-width: 1100px; margin: 20px auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        /* Rates & Capacity Styling */
-        .info-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 20px 0; }
-        .info-card { background: #f0f7f4; border: 1px solid #25D366; padding: 20px; border-radius: 12px; flex: 1; min-width: 280px; max-width: 400px; }
-        .info-card h4 { margin: 0 0 10px 0; color: #1e8449; text-transform: uppercase; font-size: 0.9em; }
-        .price-amount { font-size: 2.2em; font-weight: bold; color: #1e8449; }
-        .capacity-detail { font-size: 1.1em; line-height: 1.6; color: #444; }
-
+        header { background-color: #1a252f; color: white; padding: 40px 15px; border-top: 1px solid #34495e; }
+        h1 { margin: 0; font-size: 1.8em; letter-spacing: 1px; }
+        .tagline { font-style: italic; color: #bdc3c7; font-size: 1em; margin-top: 10px; }
+        
+        .container { width: 90%; max-width: 1100px; margin: 20px auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .owner-plus { background-color: #f0f7f4; border-left: 5px solid #25D366; padding: 20px; margin: 20px 0; font-weight: bold; color: #1e8449; border-radius: 0 10px 10px 0; text-align: left; font-size: 0.9em; }
+        
+        .info-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 20px 0; }
+        .info-card { background: #f0f7f4; border: 1px solid #25D366; padding: 20px; border-radius: 12px; flex: 1; min-width: 280px; }
+        .price-amount { font-size: 2.2em; font-weight: bold; color: #1e8449; }
+
         .amenities { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 30px 0; }
         .amenity-item i { color: #d4af37; font-size: 1.4em; display: block; margin-bottom: 8px; }
-        .booking-box { background: #f8f9fa; padding: 25px; border-radius: 12px; border: 1px solid #eee; margin-top: 20px; }
+
+        .booking-box { background: #f8f9fa; padding: 25px; border-radius: 12px; border: 1px solid #eee; }
         .btn-whatsapp { background-color: #25D366; color: white; padding: 16px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1em; display: inline-block; border: none; cursor: pointer; }
+
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; }
         .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
+
         footer { padding: 30px; background: #1a252f; color: white; margin-top: 40px; }
         @media (min-width: 600px) { h1 { font-size: 2.8em; } }
     </style>
 </head>
 <body>
 
+<div class="lang-switch">
+    <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">🇬🇧</button>
+    <button class="lang-btn" onclick="setLanguage('fr')" id="btn-fr">🇫🇷</button>
+</div>
+
 <nav>
-    <a href="#about">About</a>
-    <a href="#rates">Rates</a>
-    <a href="#booking">Booking</a>
-    <a href="#gallery">Gallery</a>
+    <a href="#about" id="nav-about">About</a>
+    <a href="#rates" id="nav-rates">Rates</a>
+    <a href="#booking" id="nav-booking">Booking</a>
+    <a href="#gallery" id="nav-gallery">Gallery</a>
 </nav>
 
 <header>
     <h1>La Villa la vie là</h1>
-    <div class="tagline">Where your holidays meet your expectations</div>
+    <div class="tagline" id="tagline">Where your holidays meet your expectations</div>
 </header>
 
 <div class="container">
     <div id="about">
-        <h2>Your Private Escape</h2>
-        <div class="owner-plus">
+        <h2 id="welcome-title">Your Private Escape</h2>
+        <div class="owner-plus" id="owner-text">
             ✨ THE VILLA PLUS: Owners reside on-site to ensure your absolute comfort, personalized service, and 24/7 security.
         </div>
     </div>
@@ -58,14 +71,12 @@
     <div id="rates">
         <div class="info-grid">
             <div class="info-card">
-                <h4>Nightly Rate</h4>
-                <div class="price-amount">€120 <span style="font-size: 0.5em;">/night</span></div>
-                <p style="margin: 5px 0 0 0; color: #666;">Standard Rate</p>
+                <h4 id="rate-title">Nightly Rate</h4>
+                <div class="price-amount">€120 <span style="font-size: 0.5em;" id="per-night">/night</span></div>
             </div>
-            
             <div class="info-card">
-                <h4>Guest Capacity</h4>
-                <div class="capacity-detail">
+                <h4 id="capacity-title">Guest Capacity</h4>
+                <div class="capacity-detail" id="capacity-detail">
                     <strong>4 Adults</strong> (Separate Beds)<br>
                     <strong>+ 2 Children</strong> (Sofa Beds available)
                 </div>
@@ -73,33 +84,24 @@
         </div>
     </div>
 
-    <div id="amenities" class="amenities">
-        <div class="amenity-item"><i class="fas fa-swimming-pool"></i> Private Pool</div>
-        <div class="amenity-item"><i class="fas fa-wifi"></i> Free Wi-Fi</div>
-        <div class="amenity-item"><i class="fas fa-parking"></i> Free Parking</div>
-        <div class="amenity-item"><i class="fas fa-umbrella-beach"></i> Pergola</div>
-        <div class="amenity-item"><i class="fas fa-car"></i> 5m to Beach</div>
-        <div class="amenity-item"><i class="fas fa-golf-ball"></i> 5m to Golf</div>
-    </div>
+    <div class="amenities" id="amenities-list">
+        </div>
 
     <div id="booking" class="booking-box">
-        <h3>Book Your Stay</h3>
-        <p>Check your travel dates and message us directly:</p>
+        <h3 id="book-title">Book Your Stay</h3>
         <input type="text" id="datePicker" style="padding:12px; border-radius:8px; border:1px solid #ccc; width:100%; max-width:250px; margin-bottom:15px; text-align:center;" placeholder="📅 Select Dates">
         <br>
         <button onclick="sendToWhatsApp()" class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> Reserve via WhatsApp
+            <i class="fab fa-whatsapp"></i> <span id="whatsapp-btn">Reserve via WhatsApp</span>
         </button>
     </div>
 
     <div id="gallery">
-        <h2>Gallery</h2>
+        <h2 id="gallery-title">Gallery</h2>
         <div class="gallery">
-            <img src="villa1.jpg" alt="Villa 1"><img src="villa2.jpg" alt="Villa 2">
-            <img src="villa3.jpg" alt="Villa 3"><img src="villa4.jpg" alt="Villa 4">
-            <img src="villa5.jpg" alt="Villa 5"><img src="villa6.jpg" alt="Villa 6">
-            <img src="villa7.jpg" alt="Villa 7"><img src="villa8.jpg" alt="Villa 8">
-            <img src="villa9.jpg" alt="Villa 9"><img src="villa10.jpg" alt="Villa 10">
+            <img src="villa1.jpg" alt="1"><img src="villa2.jpg" alt="2">
+            <img src="villa3.jpg" alt="3"><img src="villa4.jpg" alt="4">
+            <img src="villa5.jpg" alt="5"><img src="villa6.jpg" alt="6">
         </div>
     </div>
 </div>
@@ -111,18 +113,90 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    flatpickr("#datePicker", { mode: "range", minDate: "today", dateFormat: "d-m-Y" });
+    let currentLang = 'en';
+
+    const translations = {
+        en: {
+            navAbout: "About", navRates: "Rates", navBooking: "Booking", navGallery: "Gallery",
+            tagline: "Where your holidays meet your expectations",
+            welcomeTitle: "Your Private Escape",
+            ownerText: "✨ THE VILLA PLUS: Owners reside on-site to ensure your absolute comfort, personalized service, and 24/7 security.",
+            rateTitle: "Nightly Rate", perNight: "/night",
+            capacityTitle: "Guest Capacity",
+            capacityDetail: "<strong>4 Adults</strong> (Separate Beds)<br><strong>+ 2 Children</strong> (Sofa Beds available)",
+            bookTitle: "Book Your Stay", datePlaceholder: "📅 Select Dates",
+            whatsappBtn: "Reserve via WhatsApp", galleryTitle: "Gallery",
+            waMsg: "Bonjour! 🌴 I am interested in booking La Villa la vie là at €120/night.",
+            amenities: [
+                {icon: "swimming-pool", text: "Private Pool"}, {icon: "wifi", text: "Free Wi-Fi"},
+                {icon: "parking", text: "Free Parking"}, {icon: "umbrella-beach", text: "Pergola"},
+                {icon: "car", text: "5m to Beach"}, {icon: "golf-ball", text: "5m to Golf"}
+            ]
+        },
+        fr: {
+            navAbout: "À Propos", navRates: "Tarifs", navBooking: "Réservation", navGallery: "Galerie",
+            tagline: "Là où vos vacances répondent à vos attentes",
+            welcomeTitle: "Votre Évasion Privée",
+            ownerText: "✨ LE PLUS DE LA VILLA : Les propriétaires résident sur place pour assurer votre confort absolu, un service personnalisé et une sécurité 24h/24.",
+            rateTitle: "Tarif par Nuit", perNight: "/nuit",
+            capacityTitle: "Capacité d'Accueil",
+            capacityDetail: "<strong>4 Adultes</strong> (Lits séparés)<br><strong>+ 2 Enfants</strong> (Canapés-lits disponibles)",
+            bookTitle: "Réservez Votre Séjour", datePlaceholder: "📅 Choisir les dates",
+            whatsappBtn: "Réserver via WhatsApp", galleryTitle: "Galerie",
+            waMsg: "Bonjour ! 🌴 Je souhaite réserver un séjour à La Villa la vie là au tarif de 120 €/nuit.",
+            amenities: [
+                {icon: "swimming-pool", text: "Piscine Privée"}, {icon: "wifi", text: "Wi-Fi Gratuit"},
+                {icon: "parking", text: "Parking Gratuit"}, {icon: "umbrella-beach", text: "Pergola"},
+                {icon: "car", text: "5m de la Plage"}, {icon: "golf-ball", text: "5m du Golf"}
+            ]
+        }
+    };
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        
+        // Update Text
+        document.getElementById('nav-about').innerText = t.navAbout;
+        document.getElementById('nav-rates').innerText = t.navRates;
+        document.getElementById('nav-booking').innerText = t.navBooking;
+        document.getElementById('nav-gallery').innerText = t.navGallery;
+        document.getElementById('tagline').innerText = t.tagline;
+        document.getElementById('welcome-title').innerText = t.welcomeTitle;
+        document.getElementById('owner-text').innerHTML = t.ownerText;
+        document.getElementById('rate-title').innerText = t.rateTitle;
+        document.getElementById('per-night').innerText = t.perNight;
+        document.getElementById('capacity-title').innerText = t.capacityTitle;
+        document.getElementById('capacity-detail').innerHTML = t.capacityDetail;
+        document.getElementById('book-title').innerText = t.bookTitle;
+        document.getElementById('datePicker').placeholder = t.datePlaceholder;
+        document.getElementById('whatsapp-btn').innerText = t.whatsappBtn;
+        document.getElementById('gallery-title').innerText = t.galleryTitle;
+
+        // Update Amenities
+        const amenContainer = document.getElementById('amenities-list');
+        amenContainer.innerHTML = t.amenities.map(a => `
+            <div class="amenity-item"><i class="fas fa-${a.icon}"></i> ${a.text}</div>
+        `).join('');
+
+        // Update Buttons
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    }
 
     function sendToWhatsApp() {
         const dates = document.getElementById("datePicker").value;
         const phone = "23059286610"; 
-        let message = "Bonjour! 🌴 I am interested in booking La Villa la vie là at €120/night.";
+        let message = translations[currentLang].waMsg;
         if (dates) {
-            message += "\n\n📅 Requested Dates: " + dates;
-            message += "\n\nPlease confirm availability for our group. Merci!";
+            message += (currentLang === 'en' ? "\n\n📅 Requested Dates: " : "\n\n📅 Dates demandées : ") + dates;
         }
         window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(message), '_blank');
     }
+
+    // Initialize
+    setLanguage('en');
+    flatpickr("#datePicker", { mode: "range", minDate: "today", dateFormat: "d-m-Y" });
 </script>
 
 </body>
