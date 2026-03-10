@@ -6,142 +6,150 @@
     <title>La Villa la vie là Ltd - Mauritius</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
+        /* LUXURY BLUE & GOLD THEME */
         :root {
-            --luxury-blue: #1a2a44;
-            --gold: #c5a059;
-            --light-gold: #f4e9d5;
+            --luxury-blue: #0A243F; /* Deep Navy Blue */
+            --luxury-gold: #C09A5F; /* Elegant Gold */
+            --soft-gold: #f4e9d5;
         }
 
-        body { font-family: 'Georgia', serif; margin: 0; padding: 0; background-color: #fdfdfd; color: var(--luxury-blue); line-height: 1.6; text-align: center; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fdfdfd; color: var(--luxury-blue); line-height: 1.6; }
         
+        /* Header with Darker Overlay for better contrast */
         header { 
-            background: linear-gradient(rgba(26, 42, 68, 0.8), rgba(26, 42, 68, 0.8)), url('villa1.jpg'); 
+            background: linear-gradient(rgba(10, 36, 63, 0.8), rgba(10, 36, 63, 0.8)), url('villa1.jpg'); 
             background-size: cover; 
             background-position: center; 
-            color: var(--gold); 
-            padding: 80px 20px; 
-            border-bottom: 5px solid var(--gold);
-        }
-        
-        h1 { margin: 0; font-size: 2.8em; text-transform: uppercase; letter-spacing: 3px; font-weight: bold; }
-        h2 { color: var(--luxury-blue); border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; margin-top: 40px; text-transform: uppercase; }
-
-        .container { width: 90%; max-width: 1100px; margin: -40px auto 30px; background: white; padding: 40px; border-radius: 5px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid var(--light-gold); }
-
-        .features { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
-        .feature-item { 
-            background: var(--luxury-blue); 
-            color: var(--gold); 
-            padding: 12px 20px; 
-            border: 1px solid var(--gold);
-            font-size: 0.85em;
-            text-transform: uppercase;
-        }
-
-        .booking-section { background: var(--light-gold); padding: 30px; border-radius: 5px; margin: 30px 0; border: 1px solid var(--gold); }
-        
-        .calendar-input { 
-            padding: 15px; 
-            border: 1px solid var(--luxury-blue); 
-            font-size: 16px; 
-            width: 280px; 
-            text-align: center;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn-whatsapp { 
-            background-color: #25D366; 
             color: white; 
-            padding: 18px 40px; 
-            border-radius: 5px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            font-size: 1.1em; 
+            padding: 60px 20px; 
+            text-align: center;
+            border-bottom: 5px solid var(--luxury-gold);
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .container { width: 90%; max-width: 1100px; margin: -30px auto 30px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--soft-gold); }
+        
+        h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; color: var(--luxury-gold); }
+        h2 { color: var(--luxury-blue); border-bottom: 2px solid var(--luxury-gold); display: inline-block; padding-bottom: 5px; margin-top: 30px; }
+
+        /* Feature Icons Box */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .feat-item {
+            background: var(--soft-gold);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--luxury-gold);
+        }
+
+        .booking-section { background: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; border: 1px solid #eee; }
+        .calendar-input { padding: 12px; border: 1px solid var(--luxury-blue); border-radius: 5px; font-size: 16px; width: 250px; text-align: center; }
+        
+        .btn-whatsapp { background-color: #25D366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); border: 2px solid var(--luxury-gold); }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
+
+        .btn-location {
+            background-color: var(--luxury-blue);
+            color: var(--luxury-gold);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
             display: inline-block;
-            border: 2px solid var(--gold);
+            margin-top: 10px;
+            border: 1px solid var(--luxury-gold);
             transition: 0.3s;
         }
-        .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-3px); }
+        .btn-location:hover { background-color: #153154; }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .gallery img { 
-            width: 100%; 
-            height: 250px; 
-            object-fit: cover; 
-            border: 2px solid var(--light-gold);
-            border-radius: 4px;
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 30px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; cursor: pointer; border: 2px solid transparent; }
+        .gallery img:hover { border-color: var(--luxury-gold); transform: scale(1.02); }
+
+        footer { background: var(--luxury-blue); color: var(--luxury-gold); padding: 40px 20px; margin-top: 50px; text-align: center; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8em; }
+            .calendar-input { width: 100%; }
         }
-
-        footer { background: var(--luxury-blue); color: var(--gold); padding: 40px 20px; margin-top: 60px; }
     </style>
 </head>
 <body>
 
 <header>
+    <img src="logo.png" alt="La Villa la vie là Logo" class="logo">
     <h1>La Villa la vie là Ltd</h1>
-    <p style="color: white; letter-spacing: 2px;">EXCLUSIVE MAURITIAN RETREAT</p>
+    <p>Luxury Boutique Living in Mauritius</p>
 </header>
 
 <div class="container">
-    <h2>The Villa Experience</h2>
-    <p>A serene blend of comfort and elegance, perfectly situated for your tropical holiday.</p>
+    <h2>About Our Paradise</h2>
+    <p>Experience the ultimate tropical getaway. Located in a serene environment, our villa offers modern luxury, a private atmosphere, and breathtaking views for your perfect holiday.</p>
 
     <div class="features">
-        <div class="feature-item">🏝️ 5-minute drive to Beach</div>
-        <div class="feature-item">⛳ 5-minute drive to Golf</div>
-        <div class="feature-item">🏊 Private Pool</div>
+        <div class="feat-item">🏝️ 5-minute drive to the beach</div>
+        <div class="feat-item">⛳ 5-minute drive to the golf course</div>
     </div>
 
-    <h2>Availability & Booking</h2>
+    <div style="text-align: center;">
+        <a href="https://maps.google.com" target="_blank" class="btn-location">📍 View Villa Location</a>
+    </div>
+
+    <h2>Check Availability</h2>
     <div class="booking-section">
-        <p><strong>Select your dates to inquire:</strong></p>
-        <input type="text" id="checkin" class="calendar-input" placeholder="Click to select dates">
-        <button onclick="sendWhatsApp()" class="btn-whatsapp">BOOK VIA WHATSAPP</button>
+        <input type="text" id="checkin" class="calendar-input" placeholder="Select Dates">
+        <a href="#" onclick="sendWhatsApp()" class="btn-whatsapp">Check Dates on WhatsApp</a>
     </div>
 
-    <h2>Gallery</h2>
-    <div id="gallery" class="gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery" id="gallery">
         </div>
 </div>
 
 <footer>
-    <p>📍 MAURITIUS | La Villa la vie là Ltd</p>
-    <p style="font-size: 0.8em; opacity: 0.7;">&copy; 2026. All Rights Reserved.</p>
+    <p>📍 Mauritius | La Villa la vie là Ltd</p>
+    <p>&copy; 2026 All Rights Reserved.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    // Initialize the Calendar
+    // 1. Initialize the Calendar
     flatpickr("#checkin", {
         mode: "range",
         minDate: "today",
-        dateFormat: "d-m-Y",
+        dateFormat: "Y-m-d",
     });
 
-    // WhatsApp Function
+    // 2. WhatsApp Function
     function sendWhatsApp() {
         const dates = document.getElementById("checkin").value;
-        const phone = "23051234567"; // CHANGE THIS TO YOUR REAL NUMBER
+        const phone = "23051234567"; // REPLACE THIS with your real WhatsApp number
         let message = "Hello! I am interested in booking La Villa la vie là.";
-        if (dates) { message += " My requested dates are: " + dates; }
+        if (dates) { message += " My preferred dates are: " + dates; }
         
         const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
         window.open(url, '_blank');
     }
 
-    // Image Loader
-    // This assumes you renamed files to villa1.jpg, villa2.jpg, etc.
+    // 3. Image Gallery Loader
     const images = ["villa1.jpg", "villa2.jpg", "villa3.jpg", "villa4.jpg", "villa5.jpg", "villa6.jpg", "villa7.jpg", "villa8.jpg", "villa9.jpg", "villa10.jpg"];
     const gallery = document.getElementById("gallery");
 
     images.forEach(imgFile => {
         const img = document.createElement("img");
-        img.src = "./" + imgFile + "?v=refresh"; 
-        img.alt = "Villa Photo";
-        // If image fails, hide it so it doesn't look broken
+        img.src = "./" + imgFile + "?v=4"; 
+        img.alt = "Villa View";
         img.onerror = function() { this.style.display = "none"; }; 
         gallery.appendChild(img);
     });
