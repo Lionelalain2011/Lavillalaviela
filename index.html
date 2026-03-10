@@ -12,66 +12,178 @@
             --soft-gold: #f4e9d5;
         }
 
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fdfdfd; color: var(--luxury-blue); line-height: 1.6; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fdfdfd; color: var(--luxury-blue); line-height: 1.6; text-align: center; }
         
+        /* Language Flags Navigation */
+        .nav-flags {
+            background: var(--luxury-blue);
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            border-bottom: 2px solid var(--luxury-gold);
+        }
+        .flag-btn {
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--luxury-gold);
+            text-decoration: none;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .flag-btn img { width: 30px; border-radius: 2px; border: 1px solid var(--luxury-gold); }
+        .flag-btn:hover { transform: scale(1.1); }
+
         header { 
-            background: linear-gradient(rgba(10, 36, 63, 0.8), rgba(10, 36, 63, 0.8)), url('villa1.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            color: white; 
-            padding: 60px 20px; 
-            text-align: center;
-            border-bottom: 5px solid var(--luxury-gold);
+            background: linear-gradient(rgba(10, 36, 63, 0.85), rgba(10, 36, 63, 0.85)), url('villa1.jpg'); 
+            background-size: cover; background-position: center; 
+            padding: 60px 20px; border-bottom: 5px solid var(--luxury-gold);
         }
 
-        .logo { width: 150px; height: auto; margin-bottom: 15px; }
-        
-        .container { width: 90%; max-width: 1100px; margin: -30px auto 30px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--soft-gold); }
-        
+        .logo { width: 160px; height: auto; margin-bottom: 15px; }
         h1 { margin: 0; font-size: 2.5em; text-transform: uppercase; letter-spacing: 2px; color: var(--luxury-gold); }
-        h2 { color: var(--luxury-blue); border-bottom: 2px solid var(--luxury-gold); display: inline-block; padding-bottom: 5px; margin-top: 30px; }
-
-        .features { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0; font-weight: bold; }
-        .feat-item { background: var(--soft-gold); padding: 10px 20px; border-radius: 8px; border: 1px solid var(--luxury-gold); }
-
-        .owner-advantage { background: #f0f7ff; border-left: 5px solid var(--luxury-blue); padding: 20px; margin: 20px 0; font-style: italic; }
-
-        .booking-section { background: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; border: 1px solid #eee; }
-        .calendar-input { padding: 12px; border: 1px solid var(--luxury-blue); border-radius: 5px; font-size: 16px; width: 250px; text-align: center; }
         
-        .btn-whatsapp { background-color: #25D366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1em; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); border: 2px solid var(--luxury-gold); }
+        .container { width: 92%; max-width: 1100px; margin: -40px auto 40px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid var(--soft-gold); }
+
+        .features { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 25px 0; }
+        .feature-item { background: var(--luxury-blue); color: var(--luxury-gold); padding: 12px 20px; border: 1px solid var(--luxury-gold); border-radius: 8px; font-size: 0.85em; text-transform: uppercase; font-weight: bold; }
+
+        .owner-box { background: #f0f7ff; border-left: 5px solid var(--luxury-blue); padding: 20px; margin: 25px 0; text-align: left; font-style: italic; }
+
+        .booking-section { background: var(--soft-gold); padding: 30px; border-radius: 10px; margin: 30px 0; border: 1px solid var(--luxury-gold); }
+        .calendar-input { padding: 15px; border: 1px solid var(--luxury-blue); border-radius: 5px; width: 280px; text-align: center; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+        
+        .btn-whatsapp { background-color: #25D366; color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; border: 2px solid var(--luxury-gold); display: inline-block; transition: 0.3s; }
         .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
 
-        .btn-location { background-color: var(--luxury-blue); color: var(--luxury-gold); padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; border: 1px solid var(--luxury-gold); transition: 0.3s; }
+        .btn-location { background-color: var(--luxury-blue); color: var(--luxury-gold); padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; border: 1px solid var(--luxury-gold); display: inline-block; margin: 15px 0; }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 30px; }
-        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; transition: 0.3s; cursor: pointer; border: 2px solid transparent; }
-        .gallery img:hover { border-color: var(--luxury-gold); transform: scale(1.02); }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 35px; }
+        .gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; border: 2px solid var(--soft-gold); transition: 0.3s; }
+        .gallery img:hover { border-color: var(--luxury-gold); }
 
-        footer { background: var(--luxury-blue); color: var(--luxury-gold); padding: 40px 20px; margin-top: 50px; text-align: center; }
+        footer { background: var(--luxury-blue); color: var(--luxury-gold); padding: 50px 20px; margin-top: 60px; }
         
-        @media (max-width: 600px) { h1 { font-size: 1.8em; } .calendar-input { width: 100%; } }
+        /* Language Toggling Logic */
+        .lang-content { display: none; }
+        .lang-active { display: block; }
     </style>
 </head>
 <body>
 
+<div class="nav-flags">
+    <div class="flag-btn" onclick="setLanguage('en')">
+        <img src="https://flagcdn.com/w40/gb.png" alt="English"> EN
+    </div>
+    <div class="flag-btn" onclick="setLanguage('fr')">
+        <img src="https://flagcdn.com/w40/fr.png" alt="Français"> FR
+    </div>
+</div>
+
 <header>
     <img src="logo.png" alt="Logo" class="logo">
     <h1>La Villa la vie là Ltd</h1>
-    <p>Premium Island Living</p>
+    <div id="en-header" class="lang-content lang-active"><p style="color: white; letter-spacing: 2px;">LUXURY BOUTIQUE LIVING IN MAURITIUS</p></div>
+    <div id="fr-header" class="lang-content"><p style="color: white; letter-spacing: 2px;">VILLA DE LUXE À L'ÎLE MAURICE</p></div>
 </header>
 
 <div class="container">
-    <h2>Welcome to Paradise</h2>
-    <p>Experience the ultimate tropical getaway. Our villa offers modern luxury, a private atmosphere, and breathtaking views for your perfect holiday.</p>
+    
+    <div id="en-body" class="lang-content lang-active">
+        <h2>About Our Paradise</h2>
+        <p>Experience the ultimate tropical getaway. Our villa offers modern luxury, a private atmosphere, and breathtaking views for your perfect holiday.</p>
 
-    <div class="owner-advantage">
-        <strong>A Personal Touch:</strong> To ensure your stay is flawless, the owners live on-site in a separate wing. We are available to provide local recommendations, ensure top-tier security, and assist with any immediate needs while fully respecting your complete privacy.
+        <div class="owner-box">
+            <strong>A Personal Touch:</strong> To ensure your stay is flawless, the owners live on-site in a separate wing. We are available to provide local recommendations and assistance while fully respecting your complete privacy.
+        </div>
+
+        <div class="features">
+            <div class="feature-item">🏝️ 5-minute drive to Beach</div>
+            <div class="feature-item">⛳ 5-minute drive to Golf Course</div>
+            <div class="feature-item">🏊 Private Pool</div>
+        </div>
+
+        <div style="margin: 30px 0;">
+            <p><strong>📍 Our Address:</strong> 61001 Beau Champs, Bel Ombre, Mauritius</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=61001+Beau+Champs+Bel+Ombre+Mauritius" target="_blank" class="btn-location">📍 View Location Pin</a>
+        </div>
+
+        <h2>Check Availability</h2>
+        <div class="booking-section">
+            <input type="text" id="checkin-en" class="calendar-input" placeholder="Select Dates">
+            <button onclick="sendWhatsApp('en')" class="btn-whatsapp">Check Dates on WhatsApp</button>
+        </div>
     </div>
 
-    <div class="features">
-        <div class="feat-item">🏝️ 5-minute drive to the beach</div>
-        <div class="feat-item">⛳ 5-minute drive to the golf course</div>
+    <div id="fr-body" class="lang-content">
+        <h2>À Propos de Notre Paradis</h2>
+        <p>Vivez l'ultime escapade tropicale. Notre villa allie luxe moderne, atmosphère privée et vues imprenables pour vos vacances de rêve.</p>
+
+        <div class="owner-box">
+            <strong>Une Touche Personnelle :</strong> Pour garantir un séjour parfait, les propriétaires résident sur place dans une aile séparée. Nous sommes à votre disposition pour des conseils locaux tout en respectant totalement votre intimité.
+        </div>
+
+        <div class="features">
+            <div class="feature-item">🏝️ 5 min en voiture de la Plage</div>
+            <div class="feature-item)⛳ 5 min en voiture du Golf</div>
+            <div class="feature-item">🏊 Piscine Privée</div>
+        </div>
+
+        <div style="margin: 30px 0;">
+            <p><strong>📍 Notre Adresse :</strong> 61001 Beau Champs, Bel Ombre, Maurice</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=61001+Beau+Champs+Bel+Ombre+Mauritius" target="_blank" class="btn-location">📍 Voir sur la Carte</a>
+        </div>
+
+        <h2>Disponibilité</h2>
+        <div class="booking-section">
+            <input type="text" id="checkin-fr" class="calendar-input" placeholder="Choisir vos dates">
+            <button onclick="sendWhatsApp('fr')" class="btn-whatsapp">Réserver via WhatsApp</button>
+        </div>
     </div>
 
-    <div style="text
+    <h2 id="gallery-title">Photo Gallery</h2>
+    <div id="gallery" class="gallery"></div>
+</div>
+
+<footer>
+    <p>📍 61001 Beau Champs, Bel Ombre, Mauritius</p>
+    <p>&copy; 2026 La Villa la vie là Ltd. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // Initialize Calendars
+    flatpickr("#checkin-en", { mode: "range", minDate: "today", dateFormat: "d-m-Y" });
+    flatpickr("#checkin-fr", { mode: "range", minDate: "today", dateFormat: "d-m-Y" });
+
+    function setLanguage(lang) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('lang-active'));
+        document.getElementById(lang + '-header').classList.add('lang-active');
+        document.getElementById(lang + '-body').classList.add('lang-active');
+        document.getElementById('gallery-title').innerText = (lang === 'fr') ? "Galerie Photos" : "Photo Gallery";
+    }
+
+    function sendWhatsApp(lang) {
+        const dateId = (lang === 'en') ? "checkin-en" : "checkin-fr";
+        const dates = document.getElementById(dateId).value;
+        const phone = "23051234567"; // PLEASE UPDATE TO YOUR REAL NUMBER
+        const msg = (lang === 'fr') ? "Bonjour! Je souhaite réserver la villa." : "Hello! I am interested in booking the villa.";
+        window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg + " Dates: " + dates), '_blank');
+    }
+
+    // Load Images (villa1.jpg to villa10.jpg)
+    const images = ["villa1.jpg", "villa2.jpg", "villa3.jpg", "villa4.jpg", "villa5.jpg", "villa6.jpg", "villa7.jpg", "villa8.jpg", "villa9.jpg", "villa10.jpg"];
+    const gallery = document.getElementById("gallery");
+    images.forEach(imgFile => {
+        const img = document.createElement("img");
+        img.src = "./" + imgFile + "?v=6"; 
+        img.onerror = function() { this.style.display = "none"; }; 
+        gallery.appendChild(img);
+    });
+</script>
+
+</body>
+</html>
